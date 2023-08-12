@@ -33,13 +33,23 @@ class DecisionTreePredictor(QMainWindow):
     def create_input_fields(self, layout):
         self.input_widgets = {}
 
+        # Modify the fields dictionary in the create_input_fields method
         fields = [
             ("Gender", ["M", "F"]),
-            ("Region", ["North Western Region", "Wales", "Yorkshire Region", "London Region", "Scotland",
-                        "West Midlands Region"]),
-            ("Highest Education", ["HE Qualification", "A Level or Equivalent", "Lower Than A Level"]),
-            ("IMD Band",
-             ["0-10%", "10-20%", "20-30%", "30-40%", "40-50%", "50-60%", "60-70%", "70-80%", "80-90%", "90-100%"]),
+            ("Region", [
+                "East Anglian Region", "East Midlands Region", "Ireland", "London Region",
+                "North Region", "North Western Region", "Scotland", "South East Region",
+                "South Region", "South West Region", "Wales", "West Midlands Region",
+                "Yorkshire Region"
+            ]),
+            ("Highest Education", [
+                "HE Qualification", "A Level or Equivalent", "Lower Than A Level",
+                "No Formal quals", "Post Graduate Qualification"
+            ]),
+            ("IMD Band", [
+                "0-10%", "10-20%", "20-30%", "30-40%", "40-50%", "50-60%", "60-70%",
+                "70-80%", "80-90%", "90-100%"
+            ]),
             ("Age Band", ["0-35", "35-55", "55<="]),
             ("Number of Previous Attempts", []),
             ("Studied Credits", []),
@@ -135,7 +145,7 @@ class DecisionTreePredictor(QMainWindow):
         except Exception as e:
             QMessageBox.critical(self, "Error", str(e))
 
-
+#deciontree, NB, Randomforest, distinction
 def main():
     app = QApplication(sys.argv)
     window = DecisionTreePredictor()
